@@ -7,6 +7,7 @@ import { getProjectDetails } from '@/lib/actions';
 import { getCurrentUser } from '@/lib/session'
 
 import Modal from "@/components/Modal"
+import RelatedProjects from "@/components/RelatedProjects";
 
 
 const Project = async ( {params: { id }}: { params: { id : string }}) => {
@@ -99,7 +100,7 @@ const Project = async ( {params: { id }}: { params: { id : string }}) => {
                 <span className="w-full h-0.5 bg-light-white-200" />
             </section>
 
-            {/* <RelatedProjects userId={projectDetails?.createdBy?.id} projectId={projectDetails?.id} /> */}
+            <RelatedProjects userId={projectDetails?.createdBy?.id} projectId={projectDetails?.id} />
         </Modal>
   )
 }
