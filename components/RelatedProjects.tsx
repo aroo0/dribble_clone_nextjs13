@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 type Props = {
     userId: string;
-    projectId: string
+    projectId: string;
 }
 
 const RelatedProjects = async ({ userId, projectId }: Props) => {
