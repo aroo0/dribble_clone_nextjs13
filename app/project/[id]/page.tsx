@@ -26,6 +26,8 @@ const Project = async ( {params: { id }}: { params: { id : string }}) => {
 
   return (
     <Modal>
+    {projectDetails ? (
+      <>
             <section className="flexBetween gap-y-8 max-w-4xl max-xs:flex-col w-full">
                 <div className="flex-1 flex items-start gap-5 w-full max-xs:flex-col">
                     <Link href={renderLink()}>
@@ -102,7 +104,11 @@ const Project = async ( {params: { id }}: { params: { id : string }}) => {
             </section>
 
             <RelatedProjects userId={projectDetails?.createdBy?.id} projectId={projectDetails?.id} />
-        </Modal>
+            </>
+            ) : (
+            <p>Failed to fetch project information</p>
+        )}
+    </Modal>
   )
 }
 
