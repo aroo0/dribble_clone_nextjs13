@@ -13,8 +13,6 @@ const RelatedProjects = async ({ userId, projectId }: Props) => {
 
     const fitleredProjects = result?.user?.projects?.edges?.filter(({ node }: { node: ProjectInterface }) => node?.id !== projectId)
 
-    console.log(fitleredProjects)
-
     if(fitleredProjects?.length === 0) return null
 
   return (
