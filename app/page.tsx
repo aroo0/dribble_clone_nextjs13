@@ -39,21 +39,22 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
 
   if(projectsToDisplay.length === 0) {
     return (
+      <>
+      <SearchSection />
       <section className="flexStart flex-col paddings">
-        <SearchSection />
         <p className="no-result-text text-center">No project found, go create some first.</p>
       </section>
+      </>
     )
-
   }
 
   const pagination = data?.projectSearch?.pageInfo
   
 
   return (
+    <>
+    <SearchSection />
     <section className="flex-start flex-col paddings mb-16">
-      <SearchSection />
-      
       <section className="projects-grid">
         {projectsToDisplay.map(({ node }: { node: ProjectInterface}) => (
           <ProjectCard 
@@ -75,6 +76,7 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
 
         />
     </section>
+    </>
   )
 }
 

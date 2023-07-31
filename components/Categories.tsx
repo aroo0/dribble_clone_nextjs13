@@ -16,8 +16,8 @@ const Categories = () => {
     }
 
   return (
-    <div className="flexBetween w-full gap-5 flex-wrap">
-        <ul className="flex gap-2 overflow-auto">
+    <div className="flexCenter w-full gap-5 flex-wrap z-30 pb-4">
+        <ul className="flex gap-4 overflow-auto">
             {categoryFilters.map((filter) => (
                 <button
                     key={filter}
@@ -25,9 +25,9 @@ const Categories = () => {
                     onClick={() => handleTags(filter)}
                     className={`${
                         category === filter 
-                        ? 'bg-light-white-300 font-medium' :
-                        'font-mnormal'} px-4 py-3 rounded-lg capitalize whitespace-nowrap
-                    }`}
+                        ? 'bg-light-white font-medium text-black' :
+                        'font-normal bg-black/50'} px-5 py-3 rounded-full  whitespace-nowrap transition-colors duration-300 hover:text-black hover:bg-light-white
+                    `}
                     >
                     {filter}
                 </button>

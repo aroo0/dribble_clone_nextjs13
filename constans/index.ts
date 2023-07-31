@@ -17,6 +17,16 @@ export const NavLinks = [
     "Typography",
     "Web Design",
   ]
+
+
+  export const trendingSearch = [
+    "landing page",
+    "ios",
+    "food",
+    "landingpage",
+    "uxdesing",
+    "app desing",
+  ]
   
   export const footerLinks = [
     {

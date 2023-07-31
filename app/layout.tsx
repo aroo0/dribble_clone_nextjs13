@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: 'Flexibble',
+  title: 'Dribble | Next.js Clone',
   description: 'Showcase and discover remarkable developer projects',
 }
 

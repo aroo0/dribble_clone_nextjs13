@@ -23,7 +23,7 @@ const Navbar = async () => {
                   </Image>
             </Link>
         <div className='flexStart gap-10  2xl:w-2/5 2xl:order-1'>
-            <ul className='xl:flex hidden text-small gap-7'>
+            <ul className='xl:flex hidden text-small gap-7 link_hover'>
               {NavLinks.map((link) => ( 
                 <Link href={link.href} key={link.key}>{link.text}</Link>
                 ))}
