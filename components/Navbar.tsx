@@ -12,24 +12,26 @@ const Navbar = async () => {
 
 
   return (
-    <nav className='flexBetween navbar'>
-        <div className='flex-1 flexStart gap-10'>
-            <Link href='/'>
+    <nav className='flexBetween navbar w-full'>
+              <Link href='/'
+                className='2xl:mx-auto 2xl:order-2'>
                 <Image
-                  src={'/logo.svg'}
-                  width={115}
+                  src={'/logo_black.png'}
+                  width={96}
                   height={43}
-                  alt='Flexibble'
-                  >
+                  alt='Dribble'                  >
                   </Image>
             </Link>
+        <div className='flexStart gap-10  2xl:w-2/5 2xl:order-1'>
             <ul className='xl:flex hidden text-small gap-7'>
               {NavLinks.map((link) => ( 
                 <Link href={link.href} key={link.key}>{link.text}</Link>
                 ))}
             </ul>
         </div>
-        <div className='flexCenter gap-4'>
+
+        <div className='flex gap-4 justify-items-end justify-end items-center 2xl:w-2/5 2xl:order-3'>
+        
           { session?.user ? (
             <>
             <ProfileMenu  session={session}/>

@@ -2,7 +2,7 @@
 
 import { ProjectInterface } from "@/common.types"
 import ProjectCard from "@/components/ProjectCard";
-import Categories from "@/components/Categories";
+import SearchSection from "@/components/SearchSection";
 import { fetchAllProjects } from "@/lib/actions"
 import LoadMore from "@/components/LoadMore";
 
@@ -40,7 +40,7 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
   if(projectsToDisplay.length === 0) {
     return (
       <section className="flexStart flex-col paddings">
-        <Categories />
+        <SearchSection />
         <p className="no-result-text text-center">No project found, go create some first.</p>
       </section>
     )
@@ -52,7 +52,7 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
 
   return (
     <section className="flex-start flex-col paddings mb-16">
-      <Categories />
+      <SearchSection />
       
       <section className="projects-grid">
         {projectsToDisplay.map(({ node }: { node: ProjectInterface}) => (

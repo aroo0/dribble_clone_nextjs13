@@ -17,8 +17,8 @@ module.exports = {
         'light-white-500': '#E4E4E4',
         gray: '#4D4A4A',
         'gray-100': '#3d3d4e',
-        'black-100': '#252525',
-        'primary-purple': '#9747FF',
+        'black-100': '#0d0c22',
+        'primary-pink': '#ea4c89',
         'gray-50': '#D9D9D9',
       },
       boxShadow: {

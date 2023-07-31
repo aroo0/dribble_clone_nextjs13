@@ -38,7 +38,7 @@ const ProjectActions = ({ projectId }: { projectId: string }) => {
     </Link>
     <button
         type='button'
-        className={`flexCenter delete-action_btn le ${isDeleting ? 'bg-gray' : 'bg-primary-purple'}`}
+        className={`flexCenter delete-action_btn le ${isDeleting ? 'bg-gray' : 'bg-primary-pink'}`}
         onClick={handleDeleteProject}>
         <Image src='/trash.svg' width={15} height={15} alt='delete' />
     </button>

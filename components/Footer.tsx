@@ -1,6 +1,7 @@
 import { footerLinks } from '@/constans'
 import Image from 'next/image'
 import Link from 'next/link'
+import SocialNav from './SocialNav';
 
 
 type ColumnProps = {
@@ -10,9 +11,13 @@ type ColumnProps = {
 
 const FooterColumn = ({ title, links }: ColumnProps ) => (
   <div className='footer_column'>
-    <h4 className='font-semibold'>{title}</h4>
+    <h4 className='font-semibold text-[#0d0c22]'>{title}</h4>
     <ul className='flex flex-col gap-2 font-normal'>
-      {links.map((link) => ( <Link href='/' key={link}
+      {links.map((link) => ( 
+      <Link 
+        href='/' 
+        key={link}
+        className='link_hover transition py-1'
       >{link}</Link>))}
 
     </ul>
@@ -22,20 +27,21 @@ const FooterColumn = ({ title, links }: ColumnProps ) => (
 
 const Footer = () => {
   return (
-    <footer className='flexStart footer'>
-      <div className='flex flex-col gap-12 w-full'>
+    <footer className='flexStart footer '>
+      <div className='flex flex-col xl:flex-row gap-24 w-full  lg:max-w-8xl border-b  border-[#e7e7e9] py-20'>
         <div className='flex items-start flex-col'>
           <Image 
-            src='/logo-purple.svg'
+            src='/logo_pink.png'
             width={115}
             height={38}
-            alt='Flexibble'
+            alt='Dribble'
             />
           <p className='text-start text-sm font-normal mt-5 max-w-xs'>
-            Flexibble is the world's leading comunity for creatives to share, grow, and get hired.
+            Dribbble is the world’s leading community for creatives to share, grow, and get hired.
           </p>
+          <SocialNav />
         </div>
-        <div className='flex flex-wrap gap-12'>
+        <div className='flex flex-wrap xl:flex-nowrap gap-12'>
           <FooterColumn title={footerLinks[0].title} links={footerLinks[0].links} />
 
         <div className='flex-1 flex flex-col gap-4'>
@@ -50,11 +56,18 @@ const Footer = () => {
         <FooterColumn title={footerLinks[6].title} links={footerLinks[6].links} />
         </div>
       </div>
-      <div className='flexBetween footer_copyright'>
-        <p>@ 2023 Flexibble. All rights reserved.</p>
-        <p className='text-gray'>
-          <span className='text-black font-semibold'>10,214</span> projects submitted.
+      <div className='flexBetween footer_copyright lg:max-w-8xl m-auto py-10 text-[#6e6d7a]'>
+        <p>@ 2023 Dribbble. All rights reserved.</p>
+        <div className='flex gap-2 items-center'>
+        <p >
+          <span className='text-black font-semibold'>10,214</span> shots dribbbled
         </p>
+        <Image
+          src='/logo.png'
+          width={25}
+          height={25}
+          alt='logo' />
+        </div>
       </div>
 
     </footer>
