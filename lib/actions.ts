@@ -1,4 +1,4 @@
-import { allProjectQuery, createProjectMutation, createUserMutation, getUserQuery, categoryProjectsQuery, getProjectByIdQuery, getProjectsOfUserQuery, deleteProjectMutation, updateProjectMutation } from "@/graphql";
+import { allProjectQuery, createProjectMutation, createUserMutation, getUserQuery, categoryProjectsQuery, getProjectByIdQuery, getProjectsOfUserQuery, deleteProjectMutation, updateProjectMutation, searchProjectQuery, searchProjectWithCategoryQuery } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 import { ProjectForm } from "@/common.types";
 
@@ -83,13 +83,23 @@ export const createNewProject = async (form: ProjectForm, creatorId: string, tok
   }
 }
 
-export const fetchAllProjects = (category?: string | null, endcursor?: string | null) => {
+export const fetchAllProjects = (category: string | null = 'all', endcursor?: string | null) => {
   client.setHeader("x-api-key", apiKey);
 
-  const query = category ? categoryProjectsQuery : allProjectQuery
+  const query = category !== 'all' ? categoryProjectsQuery : allProjectQuery;
 
   return makeGraphQLRequest(query, { category, endcursor });
 };
+
+
+export const fetchSearchProjects = (category: string | null = 'all', endcursor?: string | null, searchValue?: string) => {
+  client.setHeader("x-api-key", apiKey);
+
+  const query = category !== 'all' ? searchProjectWithCategoryQuery : searchProjectQuery;
+
+  return makeGraphQLRequest(query, { category, endcursor, searchValue });
+};
+
 
 export const getProjectDetails = (id: string) => {
   client.setHeader("x-api-key", apiKey);

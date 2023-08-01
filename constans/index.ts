@@ -7,7 +7,6 @@ export const NavLinks = [
   ];
   
   export const categoryFilters = [
-    "Discover",
     "Animation",
     "Branding",
     "Illustration",

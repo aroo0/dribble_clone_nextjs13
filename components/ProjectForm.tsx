@@ -82,8 +82,6 @@ const ProjectForm = ({ type, session, project }: Props) => {
     title: project?.title || '',
     description: project?.description || '',
     image: project?.image || '',
-    liveSiteUrl: project?.liveSiteUrl || '',
-    githubUrl: project?.githubUrl || '',
     category: project?.category || '',
   })
 
@@ -124,22 +122,6 @@ const ProjectForm = ({ type, session, project }: Props) => {
           state={form.description}
           placeholder='Showcase and discover remarkable developer projects.'
           setState={(value) => {handleStateChange('description', value)}}
-        />
-
-        <FormField 
-          type='url'
-          title='Website URL'
-          state={form.liveSiteUrl}
-          placeholder='https://example.com'
-          setState={(value) => {handleStateChange('liveSiteUrl', value)}}
-        />
-
-        <FormField 
-          type='url'
-          title='Github URL'
-          state={form.githubUrl}
-          placeholder='https://github.com/aro00'
-          setState={(value) => {handleStateChange('githubUrl', value)}}
         />
         
         <CustomMenu

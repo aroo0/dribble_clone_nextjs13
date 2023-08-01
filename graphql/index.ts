@@ -46,8 +46,6 @@ export const createUserMutation = `
 				email
 				avatarUrl
 				description
-				githubUrl
-				linkedinUrl
 				id
 			}
 		}
@@ -66,9 +64,7 @@ export const categoryProjectsQuery = `
       edges {
         node {
           title
-          githubUrl
           description
-          liveSiteUrl
           id
           image
           category
@@ -87,7 +83,7 @@ export const categoryProjectsQuery = `
 
 export const allProjectQuery = `
   query getProjects($endcursor: String) {
-    projectSearch(first: 1, after: $endcursor) {
+    projectSearch(first: 4, after: $endcursor) {
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -97,9 +93,63 @@ export const allProjectQuery = `
       edges {
         node {
           title
-          githubUrl
           description
-          liveSiteUrl
+          id
+          image
+          category
+          createdBy {
+            id
+            email
+            name
+            avatarUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const searchProjectQuery = `
+  query getProjects($endcursor: String, $searchValue: String) {
+    projectSearch(first: 4, after: $endcursor, query: $searchValue) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      edges {
+        node {
+          title
+          description
+          id
+          image
+          category
+          createdBy {
+            id
+            email
+            name
+            avatarUrl
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const searchProjectWithCategoryQuery = `
+  query getProjects($category: String, $endcursor: String, $searchValue: String) {
+    projectSearch(first: 4, after: $endcursor, query: $searchValue, filter: {category: {eq: $category}}) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      edges {
+        node {
+          title
+          description
           id
           image
           category
@@ -122,8 +172,6 @@ export const getProjectByIdQuery = `
       title
       description
       image
-      liveSiteUrl
-      githubUrl
       category
       createdBy {
         id
@@ -143,8 +191,6 @@ export const getUserQuery = `
       email
       avatarUrl
       description
-      githubUrl
-      linkedinUrl
     }
   }
 `;
@@ -157,8 +203,6 @@ export const getProjectsOfUserQuery = `
       email
       description
       avatarUrl
-      githubUrl
-      linkedinUrl
       projects(last: $last) {
         edges {
           node {

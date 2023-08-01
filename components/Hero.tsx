@@ -56,7 +56,7 @@ const Hero = () => {
       </div>
       <ul className='flex flex-wrap gap-3 z-30 items-center justify-center px-4 pt-4'>      
       <p className='text-xs'>Trending searches</p>
-        {trendingSearch.map((value: string) => (<li onClick={() => handleTrendingSearch(value)} className='text-sm border border-[rgba(255,255,255,0.6)] px-4 py-1 rounded-full hover:border-white transition-all duration-500 cursor-pointer'>{value}</li>))}
+        {trendingSearch.map((value: string) => (<li key={value} onClick={() => handleTrendingSearch(value)} className='text-sm border border-[rgba(255,255,255,0.6)] px-4 py-1 rounded-full hover:border-white transition-all duration-500 cursor-pointer'>{value}</li>))}
         </ul>
       <div className='absolute inset-0'>
           <video loop autoPlay muted className='w-full h-full object-cover opacity-40'>
