@@ -1,10 +1,10 @@
 
-
 import { ProjectInterface } from "@/common.types"
 import ProjectCard from "@/components/ProjectCard";
-import Hero from "@/components/Hero";
+import SearchBar from "@/components/SearchBar";
 import { fetchAllProjects } from "@/lib/actions"
 import LoadMore from "@/components/LoadMore";
+import Image from "next/image";
 
 type ProjectSearch = {
   projectSearch: {
@@ -21,6 +21,7 @@ type ProjectSearch = {
 type searchParams = {
   category?: string
   endcursor?: string
+  query?: string
 }
 
 type Props = {
@@ -31,7 +32,7 @@ export const dynamic = 'force-dynamic'
 export const dynamicParams = true
 export const revalidate = 0
 
-const Home = async ( { searchParams: { category, endcursor }}: Props) => {
+const SearchPage = async ( { searchParams: { category, endcursor, query }}: Props) => {
 
   const data = await fetchAllProjects(category, endcursor) as ProjectSearch;
 
@@ -40,7 +41,7 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
   if(projectsToDisplay.length === 0) {
     return (
       <>
-      <Hero />
+        <SearchBar />
       <section className="flexStart flex-col paddings">
         <p className="no-result-text text-center">No project found, go create some first.</p>
       </section>
@@ -53,7 +54,7 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
 
   return (
     <>
-    <Hero />
+    <SearchBar />
     <section className="flex-start flex-col paddings mb-16">
       <section className="projects-grid">
         {projectsToDisplay.map(({ node }: { node: ProjectInterface}) => (
@@ -80,4 +81,4 @@ const Home = async ( { searchParams: { category, endcursor }}: Props) => {
   )
 }
 
-export default Home
+export default SearchPage
