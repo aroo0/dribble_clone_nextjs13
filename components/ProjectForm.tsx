@@ -114,14 +114,15 @@ const ProjectForm = ({ type, session, project }: Props) => {
         <FormField 
           title='Title'
           state={form.title}
-          placeholder='Flexibble'
+          placeholder='Dribble'
           setState={(value) => {handleStateChange('title', value)}}
         />
         <FormField 
           title='Description'
           state={form.description}
-          placeholder='Showcase and discover remarkable developer projects.'
+          placeholder='Showcase and discover remarkable designs projects.'
           setState={(value) => {handleStateChange('description', value)}}
+          isTextArea={true}
         />
         
         <CustomMenu

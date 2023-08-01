@@ -12,7 +12,7 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
     const [openModal, setOpenModal] = useState(false);
 
     return (
-        <div className="flexCenter z-10 flex-col relative">
+        <div className="flexCenter z-40 flex-col relative">
             <Menu as="div">
                 <Menu.Button className="flexCenter" onMouseEnter={() => setOpenModal(true)} >
                     {session?.user?.image && (
