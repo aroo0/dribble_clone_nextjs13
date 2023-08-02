@@ -16,7 +16,7 @@ const Hero = () => {
     setSearchValue(e.target.value)
   }
 
-  const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     router.push(`/search?query=${searchValue}`)
 

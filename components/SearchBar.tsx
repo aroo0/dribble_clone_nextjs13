@@ -21,7 +21,7 @@ const SearchBar = () => {
 
     }
 
-    const handleSubmit = (e: FormEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault()
         router.push(`${pathname}?query=${searchValue}`)
     }
