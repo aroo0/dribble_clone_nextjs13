@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { deleteProject, fetchToken } from '@/lib/actions'
 import { useRouter } from 'next/navigation'
 
-const ProjectActions = ({ projectId }: { projectId: string }) => {
+const ProjectAuthorActions = ({ projectId }: { projectId: string }) => {
     const router = useRouter()
     const [isDeleting, setIsDeleting] = useState(false)
 
@@ -46,4 +46,4 @@ const ProjectActions = ({ projectId }: { projectId: string }) => {
   )
 }
 
-export default ProjectActions
+export default ProjectAuthorActions

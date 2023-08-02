@@ -8,7 +8,8 @@ import { getCurrentUser } from '@/lib/session'
 
 import Modal from "@/components/Modal"
 import RelatedProjects from "@/components/RelatedProjects";
-import ProjectActions from "@/components/ProjectActions";
+import ProjectAuthorActions from "@/components/ProjectAuthorActions";
+import ProjectUserActions from "@/components/ProjectUserActions";
 
 
 const Project = async ( {params: { id }}: { params: { id : string }}) => {
@@ -55,12 +56,12 @@ const Project = async ( {params: { id }}: { params: { id : string }}) => {
                         </div>
                     </div>
                 </div>
-
-                {session?.user?.email === projectDetails?.createdBy?.email && (
-                    <div className="flex justify-end items-center gap-2">
-                        <ProjectActions projectId={projectDetails?.id} />
-                    </div>
-                )}
+                <div className="flex justify-end items-center gap-2">
+                {session?.user?.email === projectDetails?.createdBy?.email 
+                ? <ProjectAuthorActions projectId={projectDetails?.id} />
+                : <ProjectUserActions />
+                }
+                </div>
             </section>
 
             <section className="mt-14">

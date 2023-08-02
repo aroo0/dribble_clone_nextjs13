@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import ProjectUserActions from "./ProjectUserActions"
 
 
 type Props = {
@@ -33,8 +34,11 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
                 height={314}
                 className="w-full h-full object-cover rounded-2xl"
                 alt='project image'/>
-            <div className="flex opacity-0 group-hover:opacity-100 profile_card-title transition-opacity duration-300" >
-                <p className="w-full">{title}</p>
+            <div className="flex justify-between opacity-0 group-hover:opacity-100 profile_card-title transition-opacity duration-300" >
+                <p className="my-auto">{title}</p>
+                <div className="flex justify-end items-center gap-2">
+                    <ProjectUserActions applyClass='small' />
+                </div>
             </div>
         </Link>
         <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm">
