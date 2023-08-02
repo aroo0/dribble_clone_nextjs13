@@ -12,16 +12,17 @@ const SearchBar = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
     const pathname = usePathname()
+
     const query = searchParams.get('query')
+    const initialSearchValue = query || ''
+    const [searchValue, setSearchValue] = useState(initialSearchValue)
 
-    const [searchValue, setSearchValue] = useState(query)
-
-    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchValue(e.target.value)
 
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         router.push(`${pathname}?query=${searchValue}`)
     }
